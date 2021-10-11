@@ -14,7 +14,6 @@ public class GenomeRepository {
         jdbcTemplate.update(connection -> {
             String insert = "insert into genome_"+ table +"(genome) values (?)";
             PreparedStatement statement = connection.prepareStatement(insert, new String[] {"id"});
-
             statement.setString(1, genome);
             return statement;
         });
