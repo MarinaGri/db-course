@@ -1,3 +1,3 @@
 insert into mobile_phone
-select i, random() * (cast((select count(*) from model) as int)-1) + 1
-from generate_series(1, 20000000) s(i);
+select generate_series(0, 20000000) as id,
+       floor(random()*(select count(*) from model) + 1) as model_id;
